@@ -18,9 +18,9 @@
 
 - Szakterületi fogalomjegyzék:
   - MVC modelt használ
-  - Az alkalmazás egy h2 adatbázist használ az adatok tárolásásara
-  - Adatbázis egyszerűbb használata érdekében JPA használata
-  - Java 8.1 és Spring Boot-ot használ a backend megvalósítására
+  - h2 adatbázist segítségével tárolja az adatokat 
+  - Az ddatbázis egyszerűbb kezelése érdekében JPA használata
+  - Java 8 és Spring használata a backend megvalósítására
   - Angular material segítségével valósítja meg a frontend-et
   - REST API használata
   
