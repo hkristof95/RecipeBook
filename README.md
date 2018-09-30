@@ -1,2 +1,6 @@
 # recipes
-# Hello it's me
+# ReceptekÉsHozzávalók
+- Funkcionális követelmények:
+  - Autentikáció és autorizáció
+  - Keresés
+  - Recept hozzáadása és módosítása
