@@ -15,3 +15,4 @@
   - REST API használata
   
 - Szerepkörök
+  - Ide nem tudom mi faszt kell írni, hogy ki mit csinál vagy azt, hogy miért is jó ez a program
