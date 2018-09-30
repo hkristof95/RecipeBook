@@ -19,13 +19,13 @@
 - Szakterületi fogalomjegyzék:
   - MVC modelt használ
   - h2 adatbázist segítségével tárolja az adatokat 
-  - Az ddatbázis egyszerűbb kezelése érdekében JPA használata
+  - Az adatbázis egyszerűbb kezelése érdekében JPA használata
   - Java 8 és Spring használata a backend megvalósítására
   - Angular material segítségével valósítja meg a frontend-et
   - REST API használata
   
 - Szerepkörök
   - User
-    - Recept felvétele és felvettek modosítása
+    - Recept felvétele és felvettek módosítása
   - Admin
-    - Bármely recept modosítása
+    - Bármely recept módosítása
