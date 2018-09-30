@@ -25,6 +25,6 @@
   
 - Szerepkörök
   - User
-   - Recept felvétele és felvettek modosítása
+    - Recept felvétele és felvettek modosítása
   - Admin
-   - Bármely recept modosítása
+    - Bármely recept modosítása
