@@ -21,7 +21,6 @@
   - h2 adatbázist segítségével tárolja az adatokat 
   - Az adatbázis egyszerűbb kezelése érdekében JPA használata
   - Java 8 és Spring használata a backend megvalósítására
-  - Angular material segítségével valósítja meg a frontend-et
   - REST API használata
   
 - Szerepkörök
