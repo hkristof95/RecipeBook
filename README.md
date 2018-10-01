@@ -23,7 +23,7 @@
   - Java 8 és Spring használata a backend megvalósítására
   - REST API használata
   
-- Szerepkörök
+- Szerepkörök 
   - User
     - Recept felvétele és felvettek módosítása
   - Admin
