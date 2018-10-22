@@ -23,26 +23,26 @@ public class Ingredient {
 	private Long id;
 	private String name;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn
-	private List<Recipe> reciepes;
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	@JoinColumn
+//	private List<Recipe> reciepes;
 
 	public Ingredient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ingredient(String name, List<Recipe> reciepes) {
+	public Ingredient(String name/*, List<Recipe> reciepes*/) {
 		super();
 		this.name = name;
-		this.reciepes = reciepes;
+//		this.reciepes = reciepes;
 	}
 
-	public Ingredient(Long id, String name, List<Recipe> reciepes) {
+	public Ingredient(Long id, String name/*, List<Recipe> reciepes*/) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.reciepes = reciepes;
+//		this.reciepes = reciepes;
 	}
 
 	public Long getId() {
@@ -61,17 +61,17 @@ public class Ingredient {
 		this.name = name;
 	}
 
-	public List<Recipe> getReciepes() {
-		return reciepes;
-	}
-
-	public void setReciepes(List<Recipe> reciepes) {
-		this.reciepes = reciepes;
-	}
-
-	@Override
-	public String toString() {
-		return "Ingredient [id=" + id + ", name=" + name + ", reciepes=" + reciepes + "]";
-	}
+//	public List<Recipe> getReciepes() {
+//		return reciepes;
+//	}
+//
+//	public void setReciepes(List<Recipe> reciepes) {
+//		this.reciepes = reciepes;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Ingredient [id=" + id + ", name=" + name + ", reciepes=" + reciepes + "]";
+//	}
 	
 }

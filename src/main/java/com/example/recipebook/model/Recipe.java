@@ -25,36 +25,36 @@ public class Recipe {
 	private String name;
 	private String description;
 
-	@ManyToMany(mappedBy = "ingredient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JsonIgnore
-	private List<Ingredient> ingredients;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinColumn
-	private List<Restaurant> restaurants;
+//	@ManyToMany(mappedBy = "ingredient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JsonIgnore
+//	private List<Ingredient> ingredients;
+//	
+//	@ManyToMany(fetch = FetchType.LAZY)
+//	@JoinColumn
+//	private List<Restaurant> restaurants;
 
 	public Recipe() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Recipe(String name, String description, List<Ingredient> ingredients,
-			List<Restaurant> restaurants) {
+	public Recipe(String name, String description /*, List<Ingredient> ingredients,
+			List<Restaurant> restaurants*/) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.ingredients = ingredients;
-		this.restaurants = restaurants;
+//		this.ingredients = ingredients;
+//		this.restaurants = restaurants;
 	}
 
-	public Recipe(Long id, String name, String description, List<Ingredient> ingredients,
-			List<Restaurant> restaurants) {
+	public Recipe(Long id, String name, String description /*, List<Ingredient> ingredients,
+			List<Restaurant> restaurants*/) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
-		this.ingredients = ingredients;
-		this.restaurants = restaurants;
+//		this.ingredients = ingredients;
+//		this.restaurants = restaurants;
 	}
 
 	public Long getId() {
@@ -81,26 +81,26 @@ public class Recipe {
 		this.description = description;
 	}
 
-	public List<Ingredient> getIngredients() {
-		return ingredients;
-	}
+//	public List<Ingredient> getIngredients() {
+//		return ingredients;
+//	}
+//
+//	public void setIngredients(List<Ingredient> ingredients) {
+//		this.ingredients = ingredients;
+//	}
+//
+//	public List<Restaurant> getRestaurants() {
+//		return restaurants;
+//	}
+//
+//	public void setRestaurants(List<Restaurant> restaurants) {
+//		this.restaurants = restaurants;
+//	}
 
-	public void setIngredients(List<Ingredient> ingredients) {
-		this.ingredients = ingredients;
-	}
-
-	public List<Restaurant> getRestaurants() {
-		return restaurants;
-	}
-
-	public void setRestaurants(List<Restaurant> restaurants) {
-		this.restaurants = restaurants;
-	}
-
-	@Override
-	public String toString() {
-		return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", ingredients=" + ingredients
-				+ ", restaurants=" + restaurants + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", ingredients=" + ingredients
+//				+ ", restaurants=" + restaurants + "]";
+//	}
 	
 }
