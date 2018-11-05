@@ -36,6 +36,10 @@ public class Restaurant {
 	@JsonIgnore
 	private List<Recipe> recipes;
 
+	public Restaurant() {
+
+	}
+
 	public Restaurant(String name, String address, String discription, String phonenumber,
 			List<Recipe> recipes) {
 		super();

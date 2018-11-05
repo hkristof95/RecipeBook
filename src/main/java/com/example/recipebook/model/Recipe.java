@@ -37,6 +37,9 @@ public class Recipe {
 	@JoinColumn
 	private List<Restaurant> restaurants;
 
+	public Recipe() {
+
+	}
 
 	public Recipe(String name, String description , List<Ingredient> ingredients,
 			List<Restaurant> restaurants) {

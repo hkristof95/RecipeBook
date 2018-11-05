@@ -30,6 +30,9 @@ public class Ingredient {
 	@JoinColumn
 	private List<Recipe> recipes;
 
+	public Ingredient() {
+
+	}
 
 	public Ingredient(String name, List<Recipe> recipes) {
 		super();
