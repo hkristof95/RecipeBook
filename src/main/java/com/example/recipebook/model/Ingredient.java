@@ -15,7 +15,7 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
+@Entity( name = "ingredient")
 @Table
 public class Ingredient {
 
