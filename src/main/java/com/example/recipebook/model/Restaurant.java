@@ -10,49 +10,51 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
+@Entity( name = "restaurant")
 @Table
 public class Restaurant {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+
+	@NotEmpty
 	private String name;
+
+	@NotEmpty
 	private String address;
+
 	private String discription;
+
 	private String phonenumber;
 	
-//	@ManyToMany(mappedBy = "recipe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//	@JsonIgnore
-//	private List<Recipe> reciepes;
+	@ManyToMany(mappedBy = "restaurants", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Recipe> recipes;
 
-	public Restaurant() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Restaurant(String name, String address, String discription, String phonenumber
-			/*List<Recipe> reciepes*/) {
+	public Restaurant(String name, String address, String discription, String phonenumber,
+			List<Recipe> recipes) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.discription = discription;
 		this.phonenumber = phonenumber;
-//		this.reciepes = reciepes;
+		this.recipes = recipes;
 	}
 
-	public Restaurant(Long id, String name, String address, String discription, String phonenumber
-			/*List<Recipe> reciepes*/) {
+	public Restaurant(Long id, String name, String address, String discription, String phonenumber,
+			List<Recipe> recipes) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.discription = discription;
 		this.phonenumber = phonenumber;
-//		this.reciepes = reciepes;
+		this.recipes = recipes;
 	}
 
 	public Long getId() {
@@ -95,18 +97,18 @@ public class Restaurant {
 		this.phonenumber = phonenumber;
 	}
 
-//	public List<Recipe> getReciepes() {
-//		return reciepes;
-//	}
-//
-//	public void setReciepes(List<Recipe> reciepes) {
-//		this.reciepes = reciepes;
-//	}
-//
-//	@Override
-//	public String toString() {
-//		return "Restaurant [id=" + id + ", name=" + name + ", address=" + address + ", discription=" + discription
-//				+ ", phonenumber=" + phonenumber + ", reciepes=" + reciepes + "]";
-//	}
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
+	@Override
+	public String toString() {
+		return "Restaurant [id=" + id + ", name=" + name + ", address=" + address + ", discription=" + discription
+				+ ", phonenumber=" + phonenumber + ", recipes=" + recipes + "]";
+	}
 	
 }
