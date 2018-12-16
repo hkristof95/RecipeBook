@@ -9,39 +9,39 @@ VALUES
     (2,'user street','user@user.com','user','$2a$10$LqeK7TcK/ENnVCAbQ5pmi.DT.3ugXw5MBiR9JjJ5/UWw15.RcDpY.','1234',0);
 
 INSERT INTO
-    restaurant(id, `name`, address)
+    restaurant(id, `name`, address, user_id, description, phone_number)
 VALUES
-    (1, 'Mami etterme', 'Budapest');
+    (1, 'Mami etterme', 'Budapest', 1, 'Olcso es finom', '063012345678');
 
 INSERT INTO
-    restaurant(id, `name`, address)
+    restaurant(id, `name`, address, user_id,description, phone_number)
 VALUES
-    (2, 'Pizza Taco', 'Budapest');
+    (2, 'Pizza Taco', 'Budapest', 1,'Jo a pizza', '063012345678');
 
 INSERT INTO
-    restaurant(id, `name`, address, user_id)
+    restaurant(id, `name`, address, user_id, description, phone_number)
 VALUES
-    (3, 'BOR sok BOR', 'Budapest', 1);
+    (3, 'BOR sok BOR', 'Budapest', 1, 'Draga de jo', '063012345678');
 
 INSERT INTO
-    recipe(id, `name`)
+    recipe(id, `name`, description)
 VALUES
-    (1, 'Lasange');
+    (1, 'Lasange', 'Mindig jo valasztas');
 
 INSERT INTO
-    recipe(id, `name`)
+    recipe(id, `name`, description)
 VALUES
-    (2, '4 sajtos pizza');
+    (2, '4 sajtos pizza', 'Nagyon jo a tesztaja');
 
 INSERT INTO
-    recipe(id, `name`)
+    recipe(id, `name`, description)
 VALUES
-    (3, 'Vörös boros marha');
+    (3, 'Vörös boros marha', 'Eleg eros');
 
 INSERT INTO
-    recipe(id, `name`)
+    recipe(id, `name`, description)
 VALUES
-    (4, 'Kaposztas teszta');
+    (4, 'Kaposztas teszta', 'Sok cukorral az igazi');
 
 INSERT INTO
     ingredient(id, `name`)
