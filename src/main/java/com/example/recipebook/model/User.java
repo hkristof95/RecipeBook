@@ -13,7 +13,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @NotNull
@@ -22,7 +22,6 @@ public class User {
     @NotNull
     private String password;
 
-    @NotNull
     private Role role;
 
     private String phoneNumber;
@@ -30,6 +29,20 @@ public class User {
     private String email;
 
     private String address;
+
+    public User(){
+
+    }
+
+    public User(@NotNull String name, @NotNull String password, Role role, String phoneNumber, String email, String address, List<Restaurant> restaurants) {
+        this.name = name;
+        this.password = password;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.restaurants = restaurants;
+    }
 
     @OneToMany(mappedBy="user")
     private List<Restaurant> restaurants;
