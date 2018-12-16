@@ -1,7 +1,6 @@
 package com.example.recipebook.controller;
 
 import com.example.recipebook.model.User;
-import com.example.recipebook.repository.UserRepository;
 import com.example.recipebook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
