@@ -1,6 +1,8 @@
 package com.example.recipebook.model;
 
 
+import com.example.recipebook.enums.Role;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -19,6 +21,9 @@ public class User {
 
     @NotNull
     private String password;
+
+    @NotNull
+    private Role role;
 
     private String phoneNumber;
 
@@ -83,6 +88,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override

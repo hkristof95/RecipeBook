@@ -4,6 +4,7 @@ import com.example.recipebook.model.Ingredient;
 import com.example.recipebook.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class IngredientController {
 	@Autowired
 	private IngredientService service;
 
+    @Secured({"ROLE_ADMIN"})
     @GetMapping("/all")
     public List<Ingredient> all() {
         return service.getAllIngredients();
