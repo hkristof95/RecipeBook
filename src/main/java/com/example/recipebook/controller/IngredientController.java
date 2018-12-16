@@ -1,17 +1,12 @@
 package com.example.recipebook.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.recipebook.model.Ingredient;
 import com.example.recipebook.service.IngredientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/recipebook/ingredients")
@@ -29,10 +24,17 @@ public class IngredientController {
     public Ingredient ingredient(@PathVariable("id") Long id) {
         return service.getIngredientById(id);
     }
-    
+
+    @PostMapping("")
+    public Ingredient createIngredient(Ingredient ingredient) {return service.createIngredient(ingredient);}
+
     @PutMapping("/{id")
-    public void updateIngredient(@RequestBody Ingredient ingredient) {
-    	service.updateIngredient(ingredient);
+    public void updateIngredient(@PathVariable("id") Long id, @RequestBody Ingredient ingredient) {
+    	service.updateIngredient(id, ingredient);
     }
-    
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteIngredient(@PathVariable Long id) {
+        return service.deleteIngredient(id);
+    }
 }

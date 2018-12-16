@@ -9,4 +9,5 @@ import com.example.recipebook.model.Restaurant;
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long>  {
 
+    public Restaurant findByName(String Name);
 }

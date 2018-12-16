@@ -1,16 +1,14 @@
 package com.example.recipebook.service;
 
-import java.io.Serializable;
-import java.util.List;
-
+import com.example.recipebook.exception.ResourceNotFoundException;
+import com.example.recipebook.model.Ingredient;
+import com.example.recipebook.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.recipebook.repository.IngredientRepository;
-import com.example.recipebook.repository.RestaurantRepository;
-
-import com.example.recipebook.model.Ingredient;
-import com.example.recipebook.model.Restaurant;
+import java.io.Serializable;
+import java.util.List;
 
 @Service
 public class IngredientService implements Serializable {
@@ -26,12 +24,23 @@ public class IngredientService implements Serializable {
 		return repository.findById(id).get();
 	}
 	
-	public void updateIngredient(Ingredient ingredient) {
-		repository.save(ingredient);
+	public Ingredient createIngredient(Ingredient ingredient) {
+		return repository.save(ingredient);
 	}
-	
-	public void addIngredient(Ingredient ingredient) {
-		repository.save(ingredient);
+
+	public Ingredient updateIngredient(Long id, Ingredient ingredient) {
+		return repository.findById(id).map(ing -> {
+			ing.setName(ingredient.getName());
+			ing.setReciepes(ingredient.getReciepes());
+			return repository.save(ing);
+		}).orElseThrow(() -> new ResourceNotFoundException("IngredientId " + id + " not found"));
 	}
-	
+
+	public ResponseEntity deleteIngredient(Long id) {
+		return repository.findById(id).map(ingredient -> {
+			repository.delete(ingredient);
+			return ResponseEntity.ok().build();
+		}).orElseThrow(() -> new ResourceNotFoundException("IngredientId " + id + " not found"));
+	}
+
 }

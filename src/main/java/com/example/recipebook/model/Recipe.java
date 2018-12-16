@@ -1,23 +1,13 @@
 package com.example.recipebook.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity(name = "recipe")
-@Table
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.util.List;
+
+@Entity
+@Table(name = "recipe")
 public class Recipe {
 
 	@Id

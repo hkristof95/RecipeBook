@@ -3,7 +3,10 @@ package com.example.recipebook.service;
 import java.io.Serializable;
 import java.util.List;
 
+import com.example.recipebook.exception.ResourceNotFoundException;
+import com.example.recipebook.model.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.recipebook.model.Ingredient;
@@ -24,12 +27,25 @@ public class RecipeService implements Serializable {
 	public Recipe getRecipeById(Long id) {
 		return repository.findById(id).get();
 	}
-	
-	public void updateRecipe(Recipe recipe) {
-		repository.save(recipe);
+
+	public Recipe createRecipe(Recipe recipe) {
+		return repository.save(recipe);
 	}
-	
-	public void addRecipe(Recipe recipe) {
-		repository.save(recipe);
+
+	public Recipe updateRecipe(Long id, Recipe recipe) {
+		return repository.findById(id).map(rec -> {
+			rec.setDescription(recipe.getDescription());
+			rec.setIngredients(recipe.getIngredients());
+			rec.setName(recipe.getName());
+			rec.setRestaurants(recipe.getRestaurants());
+			return repository.save(rec);
+		}).orElseThrow(() -> new ResourceNotFoundException("RecipeId " + id + " not found"));
+	}
+
+	public ResponseEntity deleteRecipe(Long id) {
+		return repository.findById(id).map(recipe -> {
+			repository.delete(recipe);
+			return ResponseEntity.ok().build();
+		}).orElseThrow(() -> new ResourceNotFoundException("RecipeId " + id + " not found"));
 	}
 }

@@ -3,12 +3,8 @@ package com.example.recipebook.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.recipebook.model.Recipe;
 import com.example.recipebook.service.RecipeService;
@@ -26,13 +22,23 @@ public class RecipeController {
     }
     
     @GetMapping("/{id}")
-    public Recipe ingredient(@PathVariable("id") Long id) {
+    public Recipe getRecipe(@PathVariable("id") Long id) {
         return service.getRecipeById(id);
     }
-    
+
+    @PostMapping("")
+    public Recipe createRecipe(@RequestBody Recipe recipe) {
+        return service.createRecipe(recipe);
+    }
+
     @PutMapping("/{id")
-    public void updateIngredient(@RequestBody Recipe recipe) {
-    	service.updateRecipe(recipe);
+    public Recipe updateRecipe(@PathVariable Long id ,@RequestBody Recipe recipe) {
+        return service.updateRecipe(id, recipe);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteRecipe(@PathVariable Long id) {
+        return service.deleteRecipe(id);
     }
     
 }

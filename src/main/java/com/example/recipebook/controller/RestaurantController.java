@@ -3,12 +3,9 @@ package com.example.recipebook.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurityAutoConfiguration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.recipebook.model.Restaurant;
 import com.example.recipebook.service.RestaurantService;
@@ -24,15 +21,27 @@ public class RestaurantController {
     public List<Restaurant> all() {
         return service.getAllRestaurants();
     }
-    
+
     @GetMapping("/{id}")
-    public Restaurant ingredient(@PathVariable("id") Long id) {
+    public Restaurant getRestaurant(@PathVariable("id") Long id) {
         return service.getRestaurantById(id);
     }
-    
-    @PutMapping("/{id")
-    public void updateIngredient(@RequestBody Restaurant restaurant) {
-    	service.updateRestaurant(restaurant);
+
+    @GetMapping("/name/{name}")
+    public Restaurant findByName(@PathVariable("name") String name) { return service.findByName(name); }
+
+    @PostMapping("")
+    public Restaurant createRestaurant(@RequestBody Restaurant restaurant) {
+        return service.createRestaurant(restaurant);
     }
-    
+
+    @PutMapping("/{id}")
+    public Restaurant updateRestaurant(@PathVariable Long id ,@RequestBody Restaurant restaurant) {
+        return service.updateRestaurant(id, restaurant);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteRestaurant(@PathVariable Long id) {
+        return service.deleteRestaurant(id);
+    }
 }

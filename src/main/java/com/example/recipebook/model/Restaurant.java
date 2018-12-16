@@ -2,20 +2,13 @@ package com.example.recipebook.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity( name = "restaurant")
-@Table
+@Entity
+@Table( name = "restaurant")
 public class Restaurant {
 
 	@Id
@@ -28,13 +21,18 @@ public class Restaurant {
 	@NotEmpty
 	private String address;
 
-	private String discription;
+	private String description;
 
-	private String phonenumber;
+	private String phoneNumber;
 	
 	@ManyToMany(mappedBy = "restaurants", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Recipe> recipes;
+
+	@ManyToOne
+	@JoinColumn
+	@JsonIgnore
+	private User user;
 
 	public Restaurant() {
 
@@ -45,8 +43,8 @@ public class Restaurant {
 		super();
 		this.name = name;
 		this.address = address;
-		this.discription = discription;
-		this.phonenumber = phonenumber;
+		this.description = discription;
+		this.phoneNumber = phonenumber;
 		this.recipes = recipes;
 	}
 
@@ -56,8 +54,8 @@ public class Restaurant {
 		this.id = id;
 		this.name = name;
 		this.address = address;
-		this.discription = discription;
-		this.phonenumber = phonenumber;
+		this.description = discription;
+		this.phoneNumber = phonenumber;
 		this.recipes = recipes;
 	}
 
@@ -85,20 +83,20 @@ public class Restaurant {
 		this.address = address;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getPhonenumber() {
-		return phonenumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhonenumber(String phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public List<Recipe> getRecipes() {
@@ -111,8 +109,14 @@ public class Restaurant {
 
 	@Override
 	public String toString() {
-		return "Restaurant [id=" + id + ", name=" + name + ", address=" + address + ", discription=" + discription
-				+ ", phonenumber=" + phonenumber + ", recipes=" + recipes + "]";
+		return "Restaurant{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", address='" + address + '\'' +
+				", description='" + description + '\'' +
+				", phoneNumber='" + phoneNumber + '\'' +
+				", recipes=" + recipes +
+				", user=" + user +
+				'}';
 	}
-	
 }
