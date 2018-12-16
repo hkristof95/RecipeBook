@@ -4,7 +4,7 @@
   - Autentikáció és autorizáció
   - Keresés
   - Recept hozzáadása és módosítása
-  - Recept értékelése, kommentálása
+  - Cimke hozzáadása
 
 - Nem funkcionális követelmények
   - Fejlesztési módszertan: Agile
